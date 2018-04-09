@@ -106,7 +106,7 @@
             <div class="col-sm-6 text-right">
                 <input class="btn green" type="submit" value="Ingresar">
             </div>
-            <div class="col-sm-12 text-right">
+           {{-- <div class="col-sm-12 text-right">
                {{-- <div class="forgot-password">
                     <a href="{{ route('password.request') }}" class="forget-password">
                         ¿Se te olvidó tu contraseña?
@@ -116,13 +116,13 @@
                         Registrarse
                     </a>
                 </div><br>  
-                <div>--}}
+                <div>
                     <button data-toggle="modal" data-target="#formatos" class="btn green">
                       <i class="fa fa-plus"></i>
                         Formatos
                     </button>
                 </div>
-                {{--modal--}}
+                {{--modal
                 <div class="modal fade" id="formatos">
                     <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
@@ -157,8 +157,8 @@
                             </div>
                         </div>
                     </div>
-                {{--fin modal--}}
-            </div>            
+                {{--fin modal
+            </div>   --}}         
         </div>
     </form>
     <!-- END : LOGIN PAGE 5-1 -->

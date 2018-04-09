@@ -12,8 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Sicepla',
-    'description' => 'Sistema Centralizador de Información Para el Control de Plazos' ,
+    'name' => 'Exito',
+    'description' => 'Exito Para Servirte' ,
 
     /*
     |--------------------------------------------------------------------------
