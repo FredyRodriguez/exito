@@ -76,9 +76,12 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($users)
     {
-        //
+        $provee = User::find($users);
+         return view('sicepla.super-admin.super-admin-editarProveedor',[
+           'users' => $provee,
+         ]);
     }
 
     /**
@@ -88,9 +91,12 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $users)
     {
-        //
+      $provee = User::find($users);
+      $provee->fill($request->all());
+      $provee->save();
+      return redirect('/proveedor')->with('success','Proveedor Modificada Correctamente');
     }
 
     /**
