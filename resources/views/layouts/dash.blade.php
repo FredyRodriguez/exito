@@ -11,9 +11,9 @@
   
 
     @includeWhen($rol == 'Super Administrador', 'sicepla.super-admin.super-admin-dash')
-    @includeWhen($rol == 'Comandante de Unidad', 'sicepla.admin.administrador-dash')
-    @includeWhen($rol == 'Ayudante', 'sicepla.ayudante.ayudante-dash')
-    @includeWhen($rol == 'Jefe de Dependencia', 'sicepla.empleado.empleado-dash')
+    @includeWhen($rol == 'Administrador', 'sicepla.admin.administrador-dash')
+    @includeWhen($rol == 'Cliente', 'sicepla.ayudante.ayudante-dash')
+    @includeWhen($rol == 'Proveedor', 'sicepla.empleado.empleado-dash')
 
    
 

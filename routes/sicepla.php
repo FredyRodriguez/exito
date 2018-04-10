@@ -44,3 +44,6 @@ Route::resource('jefeacttemp', 'JefeActTempController');
 
 //Rutas Estadisticas
 Route::resource('estadistica', 'EstadisticasController');
+
+//===========================================================
+

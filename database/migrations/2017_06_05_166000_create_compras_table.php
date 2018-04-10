@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormatoTable extends Migration
+class CreateComprasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFormatoTable extends Migration
      */
     public function up()
     {
-        Schema::create('TBL_Formatos', function (Blueprint $table){
+        Schema::create('TBL_Compras', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url')->nullable();
-            $table->string('nombre')->unique();
-            $table->string('descripcion')->nullable();
-            $table->timestamps();
+            $table->integer('cantidadCompra')->nullable();
+            $table->integer('precioCompra')->nullable();                             
+            $table->rememberToken();
+            $table->timestamps();            
         });
     }
 
@@ -29,6 +29,6 @@ class CreateFormatoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TBL_Formatos');
+        Schema::dropIfExists('TBL_Compras');
     }
 }

@@ -157,8 +157,8 @@
                             </div>
                         </div>
                     </div>
-                {{--fin modal
-            </div>   --}}         
+                fin modal--}}
+            </div>         
         </div>
     </form>
     <!-- END : LOGIN PAGE 5-1 -->

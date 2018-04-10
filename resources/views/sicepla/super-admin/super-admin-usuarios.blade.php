@@ -18,13 +18,13 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Usuarios'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Proveedores'])
         <div id="app">
         {{--boton crear departamento--}}
             <div>
                 <a href="{{route('usuarios.create')}}" class="btn green-jungle">
                     <i class="fa fa-plus"></i>
-                       Crear Usuario
+                       Crear Proveedores
                 </a>
              </div>   <br>
              {{--fin boton crear departamento--}}

@@ -16,14 +16,13 @@ class CreateUsersTable extends Migration
         Schema::create('TBL_Usuarios', function (Blueprint $table) {
             $table->increments('PK_id');
             $table->string('name');
-            $table->string('telefono')->nullable();
+            $table->integer('telefono')->nullable();
             $table->integer('documento')->nullable();
-            $table->string('direccion')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('foto')->nullable();  
             $table->integer('FK_RolesId')->unsigned();
-            $table->integer('FK_DepartamentoId')->unsigned()->nullable();
+            $table->integer('FK_ComprasId')->unsigned()->nullable();
                     
             $table->rememberToken();
             $table->timestamps();
@@ -31,8 +30,8 @@ class CreateUsersTable extends Migration
             $table->foreign('FK_RolesId')->references('id')
             ->on('TBL_Roles')->onUpdate('cascade');
 
-            $table->foreign('FK_DepartamentoId')->references('id')
-            ->on('TBL_Departamento')->onUpdate('cascade');
+            $table->foreign('FK_ComprasId')->references('id')
+            ->on('TBL_Compras')->onUpdate('cascade');
 
             
         });

@@ -16,13 +16,13 @@ class RolesTableSeeder extends Seeder
                 'nombre' => 'Super Administrador'
             ],
             [
-                'nombre' => 'Comandante de Unidad'
+                'nombre' => 'Administrador'
             ],
             [
-                'nombre' => 'Ayudante'
+                'nombre' => 'Cliente'
             ],
             [
-                'nombre' => 'Jefe de Dependencia'
+                'nombre' => 'Proveedor'
             ]
         ]);
     }

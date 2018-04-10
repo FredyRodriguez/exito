@@ -3,22 +3,17 @@
 namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Container\Sicepla\Src\Departamento;
-use App\Container\Sicepla\Src\Actividad;
 
-class AdminActividadController extends Controller
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Departamento $departamento)
+    public function index()
     {
-        return view('sicepla.admin.admin-actividad', [
-            'departamento' => $departamento->load('actividad'),
-        ]);
+        //
     }
 
     /**
@@ -50,15 +45,7 @@ class AdminActividadController extends Controller
      */
     public function show($id)
     {
-        $id = Actividad::
-        select('tbl_actividad.nombre','tbl_actividad.tipo_entrega','tbl_actividad.tipo_dia', 'tbl_actividad.Num_Dia',
-            'tbl_actividad.fecha', 'tbl_actividad.hora','tbl_actividad.observacion')
-            ->join('tbl_departamento','tbl_actividad.FK_DepartamentoId','=','tbl_departamento.id')
-            ->where('tbl_departamento.id','=', $id)
-            ->get();
-        return view('sicepla.admin.admin-actividad', [
-        'actividades'  => $id,
-        ]);
+        //
     }
 
     /**
