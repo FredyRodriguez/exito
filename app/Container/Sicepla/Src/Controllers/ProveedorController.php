@@ -3,7 +3,7 @@
 namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
-use App\Container\Sicepla\Src\Requests\UserStoreRequest;
+use App\Container\Sicepla\Src\Requests\ProveedorStoreRequest;
 use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
 //use App\Container\Sicepla\Src\Departamento;
@@ -19,7 +19,7 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->where('FK_RolesId',"=","4");
         return view('sicepla.super-admin.super-admin-proveedor',compact('users','roles'));
     }
 
@@ -31,7 +31,7 @@ class ProveedorController extends Controller
     public function create()
     {
         $roles = Roles::all();
-        return view('sicepla.super-admin.super-admin-crearuser',compact('users','roles'));
+        return view('sicepla.super-admin.super-admin-crearProveedor',compact('users','roles'));
     }
 
     /**
@@ -40,9 +40,23 @@ class ProveedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProveedorStoreRequest $request)
     {
-        //
+        $atributos = $request->only(
+            'name',
+            'telefono',
+            'documento',
+            'email',
+            'FK_RolesId'
+        );
+        
+        $user = new User($atributos);
+       // $user->password = bcrypt($user->password);
+        
+        $user->save();
+        //$user->notify(new UsuarioCreado($request->password));
+        return redirect()->route('proveedor.index')->with('success','Usuario Creado Correctamente');
+        return $user;
     }
 
     /**

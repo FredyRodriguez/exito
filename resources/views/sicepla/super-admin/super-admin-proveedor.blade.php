@@ -36,6 +36,7 @@
                         <th class="text-center">Telefono</th>
                         <th class="text-center">Documento</th>
                         <th class="text-center">E-mail</th>
+                        <th class="text-center">Editar</th>
                         <th class="text-center">Eliminar</th>
                     </thead>
 
@@ -46,6 +47,8 @@
                             <td>{{$user->telefono}}</td>
                             <td>{{$user->documento}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{link_to_route('proveedor.edit', $title = '', $parameter = "", $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
+                            </td>
                             <td>{!!Form::open(['method' => 'DELETE', 'route' => ['usuarios.destroy',$user->PK_id]])!!}
                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}

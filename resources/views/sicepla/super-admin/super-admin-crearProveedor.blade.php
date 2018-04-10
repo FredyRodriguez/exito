@@ -2,9 +2,9 @@
 @section('content')
 <div class="col-md-12">
 @include('sicepla.alerts.errors')
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Crear Usuario'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Crear Proveedor'])
         <div id="app">
-        {!! Form::open(['route'=>'usuarios.store','method'=>'POST']) !!}                        
+        {!! Form::open(['route'=>'proveedor.store','method'=>'POST']) !!}                        
            <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group form-md-line-input">                                 
