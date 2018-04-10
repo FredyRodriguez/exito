@@ -3,6 +3,12 @@
 namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
+use App\Container\Sicepla\Src\Requests\UserStoreRequest;
+use App\Container\Sicepla\Src\User;
+use App\Http\Controllers\Controller;
+//use App\Container\Sicepla\Src\Departamento;
+use App\Container\Sicepla\Src\Roles;
+use App\Container\Sicepla\Src\Notifications\UsuarioCreado;
 
 class ProveedorController extends Controller
 {
@@ -13,7 +19,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('sicepla.super-admin.super-admin-proveedor',compact('users','roles'));
     }
 
     /**
@@ -23,7 +30,8 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Roles::all();
+        return view('sicepla.super-admin.super-admin-crearuser',compact('users','roles'));
     }
 
     /**

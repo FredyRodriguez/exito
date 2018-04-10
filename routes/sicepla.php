@@ -47,3 +47,4 @@ Route::resource('estadistica', 'EstadisticasController');
 
 //===========================================================
 
+Route::resource('proveedor','ProveedorController');

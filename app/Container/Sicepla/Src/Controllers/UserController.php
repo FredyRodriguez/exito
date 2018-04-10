@@ -23,8 +23,8 @@ class UserController extends Controller
         // User::all();
 
         //$users = User::with('departamento')->get();
-        $users = User::all();
-        return view('sicepla.super-admin.super-admin-usuarios',compact('users','roles'));
+        //$users = User::all();
+        //return view('sicepla.super-admin.super-admin-usuarios',compact('users','roles'));
         //return User::all();
     }
 
@@ -36,8 +36,8 @@ class UserController extends Controller
     public function create()
     {
         //$users = Departamento::all();
-        $roles = Roles::all();
-        return view('sicepla.super-admin.super-admin-crearuser',compact('users','roles'));
+        //$roles = Roles::all();
+        //return view('sicepla.super-admin.super-admin-crearuser',compact('users','roles'));
     }
 
     /**

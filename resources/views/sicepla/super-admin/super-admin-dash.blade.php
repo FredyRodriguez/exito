@@ -1,7 +1,7 @@
 @component('components.nav-link', [
     'icon' => 'fa fa-users',
     'title' => 'Proveedores',
-    'link' => route('usuarios.index')
+    'link' => route('proveedor.index')
 ])
 @endcomponent
 
