@@ -76,4 +76,7 @@ class User extends Authenticatable
     public function formato(){
         return $this->hasMany();
     }
+    public function producto(){
+        return $this->hasOne(Producto::class,'FK_UsuarioId','PK_id');
+    }
 }

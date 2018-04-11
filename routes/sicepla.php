@@ -49,10 +49,11 @@ Route::resource('estadistica', 'EstadisticasController');
 
 Route::resource('proveedor','ProveedorController');
 
-Route::prefix('proveedor/{proveedor}')->group(function () {
-    Route::get('actividad','ActividadController@index')->name('actividad.index');
-    Route::get('actividades','ActividadController@show')->name('actividad.show');
-    Route::any('actividad/create','ActividadController@create')->name('actividad.create');
-    Route::any('activida','ActividadController@store')->name('actividad.store');
-    Route::delete('actividades','ActividadController@destroy')->name('actividad.destroy'); 
+Route::prefix('producto')->group(function () {   
+    Route::get('create/{proveedor}','ProductoController@create')->name('producto.create');
+    Route::post('store','ProductoController@store')->name('producto.store');
+    Route::get('index/{proveedor}','ProductoController@index')->name('producto.index');
+    Route::get('editar/{producto}','ProductoController@edit')->name('producto.editar');
+    Route::put('update/{producto}','ProductoController@update')->name('producto.update');
+    Route::delete('destroy{producto}','ProductoController@destroy')->name('producto.destroy');
 });

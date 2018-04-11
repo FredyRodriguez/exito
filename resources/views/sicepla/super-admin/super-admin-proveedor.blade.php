@@ -40,7 +40,6 @@
                         <th class="text-center">Eliminar</th>
                         <th class="text-center">Agregar Producto</th>
                         <th class="text-center">Ver Producto</th>
-                        <th class="text-center">Solicitar Producto</th>
                     </thead>
 
                     <tbody>
@@ -56,9 +55,10 @@
                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}
                             </td>
-                            <td>{{link_to_route('actividad.create', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-success btn-icon edit icon-plus'])}}</td>
-                            <td>{{link_to_route('actividad.show', $title = '', $parameter = '', $attributes = ['class' => 'btn btn-simple btn-info btn-icon edit icon-eye'])}}</td> 
-                            <td>{{link_to_route('actividad.create', $title = '', $parameter = '', $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-ok'])}}</td>                           
+                            <td>{{link_to_route('producto.create', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-success btn-icon edit icon-plus'])}}</td>
+                            <td>{{link_to_route('producto.index', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-info icon-eye'])}}</td>
+                            {{--<td>{{link_to_route('actividad.show', $title = '', $parameter = '', $attributes = ['class' => 'btn btn-simple btn-info btn-icon edit icon-eye'])}}</td> 
+                            <td>{{link_to_route('actividad.create', $title = '', $parameter = '', $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-ok'])}}</td>--}}                         
                         </tr>
                         @endforeach
                     </tbody> 

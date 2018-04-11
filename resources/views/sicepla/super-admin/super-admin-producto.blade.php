@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @endpush
-
+      
 @section('content')
 <div class="col-md-12">
 {{--Inicio Mensaje Confirmar--}}
@@ -18,63 +18,36 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Plazos'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Producto'])
         <div id="app">
-        {{--boton crear departamento--}}
-          {{--  <div>
-                <a href="{{route('actividad.create',['departamento' => $departamento])}}" class="btn green-jungle">
-                    <i class="fa fa-plus"></i>
-                       Crear Actividad
-                </a>
-             </div>  --}} <br>
-             {{--fin boton crear departamento--}}
             {{--inicio tabla--}}
             <div class="table-responsive">
-               <table id="data" class="table table-hover table-bordered table-condensed">
-                   <thead>
-                       <th class="text-center">Nombre</th>
-                       <th class="text-center">Dia</th>
-                       <th class="text-center">Numero Dia</th>
-                       <th class="text-center">Fecha</th>
-                       <th class="text-center">Hora</th>
-                       <th class="text-center">Observacion</th>
-                       <th class="text-center">Eliminar</th>
-                   </thead>
+                <table id="data" class="table table-hover table-bordered table-condensed">
+                    <thead>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">Editar</th>
+                        <th class="text-center">Eliminar</th>
+                    </thead>
 
-                   <tbody>
-                     @foreach($actividades as $actividad)
-                       <tr  class="text-center">
-                            <td>{{$actividad->nombre}}</td>
-                           
-                           @if(isset($actividad->tipo_dia))
-                                <td>{{$actividad->tipo_dia}}</td>
-                            @else
-                                <td>x</td>
-                            @endif
-                            @if(isset($actividad->Num_Dia))
-                                <td>{{$actividad->Num_Dia}}</td>
-                             @else
-                                <td>x</td>
-                            @endif
-                            @if(isset($actividad->fecha))
-                                <td>{{$actividad->fecha}}</td>
-                            @else
-                                <td>x</td>
-                            @endif
-                            @if(isset($actividad->hora))
-                                <td>{{$actividad->hora}}</td>
-                            @else
-                                <td>x</td>
-                            @endif
-                            <td>{{$actividad->observacion}}</td>
-                           <td>@include('sicepla.super-admin.super-admin-deleteactividad')</td> 
-                       </tr>
-                       @endforeach
-                   </tbody>
-               </table>
-             </div>
+                    <tbody>
+                      @foreach($productos as $producto)
+                        <tr  class="text-center">
+                            <td>{{$producto->name}}</td>
+                            <td>{{$producto->precioProducto}}</td>
+                            <td>{{link_to_route('producto.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
+                            </td>
+                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['producto.destroy',$producto->id]])!!}
+                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+                                {!!Form::close()!!}
+                            </td>                         
+                        </tr>
+                        @endforeach
+                    </tbody> 
+                </table>
+            </div>
         </div>
-        @include('partials.modal-help-actividad')
+        @include('partials.modal-help-usuario')
     @endcomponent
 </div>
 @endsection
