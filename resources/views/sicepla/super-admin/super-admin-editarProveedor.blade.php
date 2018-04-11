@@ -30,7 +30,7 @@
                 </div>
             </div>            
             {!! Form::submit('Editar', ['class'=>'btn green-jungle']) !!}
-            {{link_to_route('departamentos.index', $title = 'cancelar', $parameter = [''], $attributes = ['class' => 'btn btn-danger btn-warning'])}}
+            {{link_to_route('proveedor.index', $title = 'cancelar', $parameter = [''], $attributes = ['class' => 'btn btn-danger btn-warning'])}}
             </div>  
             {!! Form::close() !!}
         </div>

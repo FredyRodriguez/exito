@@ -11,13 +11,13 @@ Route::prefix('/perfil')->group(function (){
     Route::post('foto', 'PerfilController@fotoUp')->name('perfil.foto');
 });
 
-Route::prefix('departamentos/{departamento}')->group(function () {
+/*Route::prefix('departamentos/{departamento}')->group(function () {
     Route::get('actividad','ActividadController@index')->name('actividad.index');
     Route::get('actividades','ActividadController@show')->name('actividad.show');
     Route::any('actividad/create','ActividadController@create')->name('actividad.create');
     Route::any('activida','ActividadController@store')->name('actividad.store');
     Route::delete('actividades','ActividadController@destroy')->name('actividad.destroy'); 
-});
+});*/
 
 Route::resource('formatos','FormatoController');
 
@@ -48,3 +48,11 @@ Route::resource('estadistica', 'EstadisticasController');
 //===========================================================
 
 Route::resource('proveedor','ProveedorController');
+
+Route::prefix('proveedor/{proveedor}')->group(function () {
+    Route::get('actividad','ActividadController@index')->name('actividad.index');
+    Route::get('actividades','ActividadController@show')->name('actividad.show');
+    Route::any('actividad/create','ActividadController@create')->name('actividad.create');
+    Route::any('activida','ActividadController@store')->name('actividad.store');
+    Route::delete('actividades','ActividadController@destroy')->name('actividad.destroy'); 
+});
