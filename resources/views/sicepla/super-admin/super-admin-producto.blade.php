@@ -28,6 +28,7 @@
                         <th class="text-center">Precio</th>
                         <th class="text-center">Editar</th>
                         <th class="text-center">Eliminar</th>
+                        <th class="text-center">Solicitar</th>
                     </thead>
 
                     <tbody>
@@ -40,7 +41,8 @@
                             <td>{!!Form::open(['method' => 'DELETE', 'route' => ['producto.destroy',$producto->id]])!!}
                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}
-                            </td>                         
+                            </td>  
+                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>                       
                         </tr>
                         @endforeach
                     </tbody> 

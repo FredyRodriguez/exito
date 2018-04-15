@@ -19,7 +19,9 @@ class CreateProductosTable extends Migration
             $table->integer('cantidadBodega')->nullable();
             $table->integer('cantidadExhibicion')->nullable();
             $table->integer('totalProducto')->nullable(); 
-            $table->integer('precioProducto')->nullable();    
+            $table->integer('precioProducto')->nullable();   
+            $table->integer('cantidadComprar')->nullable();
+            $table->integer('precioProductoComprar')->nullable();
             $table->integer('FK_UsuarioId')->unsigned();                          
             $table->rememberToken();
             $table->timestamps();            

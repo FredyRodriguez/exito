@@ -107,6 +107,21 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         Producto::destroy($id);
-      return redirect('/proveedor')->with('error','Producto Eliminado Correctamente');
+        return redirect('/proveedor')->with('error','Producto Eliminado Correctamente');
+    }
+    
+    public function pedir($id)
+    {
+        $produc = Producto::find($id);
+         return view('sicepla.super-admin.super-admin-solicitarProduc',[
+           'id' => $produc,
+         ]);
+    }
+    public function pedirupdate(Request $request, $id)
+    {
+         $produc = Producto::find($id);
+         $produc->fill($request->all());
+         $produc->save();
+        return redirect('/proveedor')->with('success','Producto Solicitado Correctamente');
     }
 }

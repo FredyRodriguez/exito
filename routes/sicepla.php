@@ -56,4 +56,6 @@ Route::prefix('producto')->group(function () {
     Route::get('editar/{producto}','ProductoController@edit')->name('producto.editar');
     Route::put('update/{producto}','ProductoController@update')->name('producto.update');
     Route::delete('destroy{producto}','ProductoController@destroy')->name('producto.destroy');
+    Route::get('pedir/{producto}','ProductoController@pedir')->name('producto.pedir');
+    Route::put('pedirupdate/{producto}','ProductoController@pedirupdate')->name('producto.pedirupdate');
 });
