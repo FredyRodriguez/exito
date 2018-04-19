@@ -59,3 +59,16 @@ Route::prefix('producto')->group(function () {
     Route::get('pedir/{producto}','ProductoController@pedir')->name('producto.pedir');
     Route::put('pedirupdate/{producto}','ProductoController@pedirupdate')->name('producto.pedirupdate');
 });
+
+Route::prefix('bodega')->group(function () {   
+    //Route::get('create/{proveedor}','ProductoController@create')->name('producto.create');
+    //Route::post('store','ProductoController@store')->name('producto.store');
+    Route::get('index','BodegaController@index')->name('bodega.index');
+    Route::get('editar/{producto}','BodegaController@edit')->name('bodega.editar');  
+    Route::put('update/{producto}','BodegaController@update')->name('bodega.update');
+    //Route::get('editar/{producto}','ProductoController@edit')->name('producto.editar');
+    //Route::put('update/{producto}','ProductoController@update')->name('producto.update');
+    //Route::delete('destroy{producto}','ProductoController@destroy')->name('producto.destroy');
+    //Route::get('pedir/{producto}','ProductoController@pedir')->name('producto.pedir');
+    //Route::put('pedirupdate/{producto}','ProductoController@pedirupdate')->name('producto.pedirupdate');
+});

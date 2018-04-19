@@ -8,7 +8,7 @@
 @component('components.nav-link', [
     'icon' => 'fa fa-object-group',
     'title' => 'Productos Bodega',
-    'link' => route('departamentos.index')
+    'link' => route('bodega.index')
 ])
 @endcomponent
 

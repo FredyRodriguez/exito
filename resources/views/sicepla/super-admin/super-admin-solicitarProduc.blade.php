@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-12">
 @include('sicepla.alerts.errors')
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Crear Producto'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Solicitar Producto'])
         <div id="app">
         
         {!!Form::model($id, ['route' => ['producto.pedirupdate',$id], 'method' => 'PUT','files' => true, 'enctype'=>'multipart/form-data'])!!}
@@ -33,6 +33,9 @@
                         {!!Form::number('compraProveedor',null,['id' => 'compraProveedor' ,'class'=>'form-control','placeholder'=>'Precio Compra','required','readonly'=>'readonly'])!!}
                     </div>
                 </div>
+                <div class="form-group form-md-line-input">
+                    {!!Form::hidden('totalProducto',null,['id'=>'totalProducto',])!!}{{--Campo Oculto del Id usuario--}}
+                </div>
             </div>
                 {!! Form::submit('registrar', ['class'=>'btn green-jungle']) !!}
                 {{link_to_route('proveedor.index', $title = 'cancelar', $parameter = [''], $attributes = ['class' => 'btn btn-danger btn-warning'])}}
@@ -48,8 +51,12 @@ jQuery(document).ready(function(){
      $('#cantidadBodega').on('keyup', function () {
          var precioP =  document.getElementById("precioProducto").value;
          var cant = document.getElementById("cantidadBodega").value;
+         console.log(cant);
          document.getElementById("compraProveedor").value = precioP * cant;
+         document.getElementById("totalProducto").value = cant;
         });
+       
+            
 });
 </script>
 @endpush
