@@ -18,6 +18,11 @@ class BodegaController extends Controller
         $productos = Producto::all();
         return view('sicepla.super-admin.super-admin-producBodega',compact('productos'));
     }
+    public function producto()
+    {
+        $productos = Producto::all();
+        return view('sicepla.admin.admin-producBodega',compact('productos'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -60,7 +65,7 @@ class BodegaController extends Controller
     public function edit($id)
     {
         $produc = Producto::find($id);
-         return view('sicepla.super-admin.super-admin-exhibicion',[
+         return view('sicepla.admin.admin-exhibicion',[
            'id' => $produc,
          ]);
     }
@@ -77,7 +82,7 @@ class BodegaController extends Controller
         $produc = Producto::find($id);
          $produc->fill($request->all());
          $produc->save();
-        return redirect('/bodega/index')->with('success','Producto en exhibicion almacenada Correctamente');
+        return redirect('/bodega/producto')->with('success','Producto en exhibicion almacenada Correctamente');
     }
 
     /**

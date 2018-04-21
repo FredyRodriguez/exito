@@ -24,9 +24,9 @@ class ProveedorStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|max:255',
+            'name'=>'required|string|max:40',
             'telefono' =>'required|min:8|max:11',
-            'documento' =>'required|integer',
+            'documento' =>'required|integer|unique:TBL_Usuarios',
             'email'=>'required|string|email|max:255|unique:TBL_Usuarios',
         ];
     }

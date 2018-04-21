@@ -20,14 +20,6 @@
 {{--Fin Mensaje Confirmar--}}
     @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos en Bodega'])
         <div id="app">
-        {{--boton crear departamento--}}
-            <div>
-                <a href="{{route('proveedor.create')}}" class="btn green-jungle">
-                    <i class="fa fa-plus"></i>
-                       Crear Proveedores
-                </a>
-             </div>   <br>
-             {{--fin boton crear departamento--}}
             {{--inicio tabla--}}
             <div class="table-responsive">
                 <table id="data" class="table table-hover table-bordered table-condensed">
@@ -36,9 +28,9 @@
                         <th class="text-center">Cant. Bodega</th>
                         <th class="text-center">Cant. Exhibicion</th>
                         <th class="text-center">Total Producto</th>
+                        <th class="text-center">Precio Proveedor</th>
                         <th class="text-center">Precio Cliente</th>
                         <th class="text-center">Editar</th>
-                        <th class="text-center">Soli. Exhibicion</th>
                         
                     </thead>
                     <tbody>
@@ -48,10 +40,9 @@
                             <td>{{$producto->cantidadBodega}}</td>
                             <td>{{$producto->cantidadExhibicion}}</td>
                             <td>{{$producto->totalProducto}}</td>
+                            <td>{{$producto->precioProducto}}</td>
                             <td>{{$producto->precioProductoComprar}}</td>
-                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}</td>
-                            <td>{{link_to_route('bodega.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>
-                        </tr>
+                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}</td></tr>
                         @endforeach
                     </tbody>
                      

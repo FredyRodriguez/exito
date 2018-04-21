@@ -7,15 +7,15 @@
 
 @component('components.nav-link', [
     'icon' => 'fa fa-object-group',
-    'title' => 'Productos Bodega',
+    'title' => 'Productos',
     'link' => route('bodega.index')
 ])
 @endcomponent
 
 @component('components.nav-link', [
     'icon' => 'fa fa-book',
-    'title' => 'Productos Exhibicion',
-    'link' => route('formatos.index')
+    'title' => 'Clientes',
+    'link' => route('cliente.index')
 ])
 @endcomponent
 

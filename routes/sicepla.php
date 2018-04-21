@@ -1,7 +1,7 @@
 <?php
 //Rutas Super Administrador
 
-Route::resource('usuarios','UserController');
+//Route::resource('usuarios','UserController');
 Route::resource('departamentos', 'DepartamentoController');
 
 Route::prefix('/perfil')->group(function (){
@@ -48,6 +48,7 @@ Route::resource('estadistica', 'EstadisticasController');
 //===========================================================
 
 Route::resource('proveedor','ProveedorController');
+Route::resource('cliente','ClienteController');
 
 Route::prefix('producto')->group(function () {   
     Route::get('create/{proveedor}','ProductoController@create')->name('producto.create');
@@ -64,6 +65,7 @@ Route::prefix('bodega')->group(function () {
     //Route::get('create/{proveedor}','ProductoController@create')->name('producto.create');
     //Route::post('store','ProductoController@store')->name('producto.store');
     Route::get('index','BodegaController@index')->name('bodega.index');
+    Route::get('producto','BodegaController@producto')->name('bodega.producto');
     Route::get('editar/{producto}','BodegaController@edit')->name('bodega.editar');  
     Route::put('update/{producto}','BodegaController@update')->name('bodega.update');
     //Route::get('editar/{producto}','ProductoController@edit')->name('producto.editar');

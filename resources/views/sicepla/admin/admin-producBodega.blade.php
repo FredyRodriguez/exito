@@ -18,34 +18,35 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Producto'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos en Bodega'])
         <div id="app">
             {{--inicio tabla--}}
             <div class="table-responsive">
                 <table id="data" class="table table-hover table-bordered table-condensed">
                     <thead>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Precio</th>
+                        <th class="text-center">Cant. Bodega</th>
+                        <th class="text-center">Cant. Exhibicion</th>
+                        <th class="text-center">Total Producto</th>
+                        <th class="text-center">Precio Cliente</th>
                         <th class="text-center">Editar</th>
-                        <th class="text-center">Eliminar</th>
-                        <th class="text-center">Solicitar</th>
+                        <th class="text-center">Soli. Exhibicion</th>
+                        
                     </thead>
-
                     <tbody>
                       @foreach($productos as $producto)
                         <tr  class="text-center">
                             <td>{{$producto->name}}</td>
-                            <td>{{$producto->precioProducto}}</td>
-                            <td>{{link_to_route('producto.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
-                            </td>
-                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['producto.destroy',$producto->id]])!!}
-                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
-                                {!!Form::close()!!}
-                            </td> 
-                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>                       
+                            <td>{{$producto->cantidadBodega}}</td>
+                            <td>{{$producto->cantidadExhibicion}}</td>
+                            <td>{{$producto->totalProducto}}</td>
+                            <td>{{$producto->precioProductoComprar}}</td>
+                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}</td>
+                            <td>{{link_to_route('bodega.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>
                         </tr>
                         @endforeach
-                    </tbody> 
+                    </tbody>
+                     
                 </table>
             </div>
         </div>

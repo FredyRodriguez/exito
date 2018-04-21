@@ -29,9 +29,14 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group form-md-line-input">                                 
-                        {!!Form::label('PRECIO DE COMPRA')!!}                                
+                        {!!Form::label('PRECIO DE COMPRA AL PROVEEDOR')!!}                                
                         {!!Form::number('compraProveedor',null,['id' => 'compraProveedor' ,'class'=>'form-control','placeholder'=>'Precio Compra','required','readonly'=>'readonly'])!!}
                     </div>
+                </div>
+            </div>
+            <div class="row">            
+                <div class="form-group form-md-line-input">
+                    {!!Form::hidden('cantidadExhibicion',null,['id'=>'cantidadExhibicion',])!!}{{--Campo Oculto del Id usuario--}}
                 </div>
                 <div class="form-group form-md-line-input">
                     {!!Form::hidden('totalProducto',null,['id'=>'totalProducto',])!!}{{--Campo Oculto del Id usuario--}}
@@ -48,15 +53,29 @@
 @push('functions')
 <script>
 jQuery(document).ready(function(){
+    let bodegaInput = document.getElementById("cantidadExhibicion")
+    let original = bodegaInput.value
+    console.log("exhibicion " + original);
      $('#cantidadBodega').on('keyup', function () {
-         var precioP =  document.getElementById("precioProducto").value;
-         var cant = document.getElementById("cantidadBodega").value;
-         console.log(cant);
+         var precioP =  document.getElementById("precioProducto").value;         
+         console.log("precio " + precioP);  
+         cantidadExhibicion = bodegaInput.vale;
+         var cant = document.getElementById("cantidadBodega").value;            
+         console.log("cantidad bodega " + cant);      
+         //var cantidadExhibicion = document.getElementById("cantidadExhibicion").value;
          document.getElementById("compraProveedor").value = precioP * cant;
-         document.getElementById("totalProducto").value = cant;
+         original = parseInt(original);
+         //console.log("exhibiciion " + original);
+         cant = parseInt(cant);  
+         document.getElementById("totalProducto").value = cant+original; 
+         //document.getElementById("cantidadExhibicion").value = res;
+         //console.log("resultado " + res);
+         //bodegaInput.value = res;
+         
         });
        
-            
+           
+         
 });
 </script>
 @endpush

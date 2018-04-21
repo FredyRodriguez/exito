@@ -18,46 +18,31 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Proveedores'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Producto'])
         <div id="app">
-        {{--boton crear departamento--}}
-            <div>
-                <a href="{{route('usuarios.create')}}" class="btn green-jungle">
-                    <i class="fa fa-plus"></i>
-                       Crear Proveedores
-                </a>
-             </div>   <br>
-             {{--fin boton crear departamento--}}
             {{--inicio tabla--}}
             <div class="table-responsive">
                 <table id="data" class="table table-hover table-bordered table-condensed">
                     <thead>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Telefono</th>
-                        <th class="text-center">Documento</th>
-                        <th class="text-center">Direccion</th>
-                        <th class="text-center">E-mail</th>
-                        <th class="text-center">Dependencia</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">Editar</th>
                         <th class="text-center">Eliminar</th>
+                        <th class="text-center">Solicitar</th>
                     </thead>
 
                     <tbody>
-                      @foreach($users as $user)
+                      @foreach($productos as $producto)
                         <tr  class="text-center">
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->telefono}}</td>
-                            <td>{{$user->documento}}</td>
-                            <td>{{$user->direccion}}</td>
-                            <td>{{$user->email}}</td>
-                            @if(isset($user->departamento))
-                                <td>{{$user->departamento->nombre}}</td>
-                            @else
-                                <td>No Aplica</td>
-                            @endif
-                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['usuarios.destroy',$user->PK_id]])!!}
+                            <td>{{$producto->name}}</td>
+                            <td>{{$producto->precioProducto}}</td>
+                            <td>{{link_to_route('producto.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
+                            </td>
+                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['producto.destroy',$producto->id]])!!}
                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}
-                            </td>
+                            </td>  
+                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>                       
                         </tr>
                         @endforeach
                     </tbody> 

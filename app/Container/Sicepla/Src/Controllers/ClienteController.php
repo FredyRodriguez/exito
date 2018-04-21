@@ -3,15 +3,13 @@
 namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Container\Sicepla\Src\Requests\UserStoreRequest;
-//use App\Container\Sicepla\Src\User;
+use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
-//use App\Container\Sicepla\Src\Departamento;
 use App\Container\Sicepla\Src\Roles;
-//use App\Container\Sicepla\Src\Notifications\UsuarioCreado;
+use App\Container\Sicepla\Src\Requests\UserStoreRequest;
 
 
-class UserController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        // User::all();
-
-        //$users = User::with('departamento')->get();
-        //$users = User::all();
-        //return view('sicepla.super-admin.super-admin-usuarios',compact('users','roles'));
-        //return User::all();
+        $users = User::all()->where('FK_RolesId',"=","3");
+        return view('sicepla.super-admin.super-admin-clientes',compact('users','roles'));
     }
 
     /**
@@ -35,9 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //$users = Departamento::all();
-        //$roles = Roles::all();
-        //return view('sicepla.super-admin.super-admin-crearuser',compact('users','roles'));
+        $roles = Roles::all();
+        return view('sicepla.super-admin.super-admin-crearCliente',compact('users','roles'));
     }
 
     /**
@@ -52,19 +45,14 @@ class UserController extends Controller
             'name',
             'telefono',
             'documento',
-            'direccion',
             'email',
             'password',
-            'FK_RolesId',
-            'FK_DepartamentoId'
-        );
-        
+            'FK_RolesId'
+        );        
         $user = new User($atributos);
-        $user->password = bcrypt($user->password);
-        
-        $user->save();
-        $user->notify(new UsuarioCreado($request->password));
-        return redirect()->route('usuarios.index')->with('success','Usuario Creado Correctamente');
+        $user->password = bcrypt($user->password);        
+        $user->save();        
+        return redirect()->route('cliente.index')->with('success','Cliente Creado Correctamente');
         return $user;
     }
 
@@ -85,9 +73,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($users)
     {
-        //
+        $provee = User::find($users);
+         return view('sicepla.super-admin.super-admin-editarCliente',[
+           'users' => $provee,
+         ]);
     }
 
     /**
@@ -97,9 +88,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $users)
     {
-        //
+        $provee = User::find($users);
+      $provee->fill($request->all());
+      $provee->save();
+      return redirect('/cliente')->with('success','Cliente Modificado Correctamente');
     }
 
     /**
@@ -111,7 +105,6 @@ class UserController extends Controller
     public function destroy($users)
     {
         User::destroy($users);
-        return redirect()->route('usuarios.index')->with('error','Usuario Eliminado Correctamente');
+        return redirect('/cliente')->with('error','Cliente Eliminado Correctamente');
     }
-
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Container\Sicepla\Src\User;
 use App\Container\Sicepla\Src\Producto;
 use App\Container\Sicepla\Src\Proveedor;
+use App\Container\Sicepla\Src\Requests\ProductoStoreRequest;
 
 class ProductoController extends Controller
 {
@@ -40,7 +41,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store (Request $request)
+    public function store (ProductoStoreRequest $request)
     {
         $producto = new Producto;
         $producto::create([
