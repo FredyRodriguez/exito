@@ -65,9 +65,15 @@ jQuery(document).ready(function(){
          //var cantidadExhibicion = document.getElementById("cantidadExhibicion").value;
          document.getElementById("compraProveedor").value = precioP * cant;
          original = parseInt(original);
-         //console.log("exhibiciion " + original);
          cant = parseInt(cant);  
-         document.getElementById("totalProducto").value = cant+original; 
+         if(original > 0){             
+            var res =cant + original
+         }
+         else{
+            var res =cant;
+         }
+         console.log("total " + res);
+         document.getElementById("totalProducto").value = res; 
          //document.getElementById("cantidadExhibicion").value = res;
          //console.log("resultado " + res);
          //bodegaInput.value = res;

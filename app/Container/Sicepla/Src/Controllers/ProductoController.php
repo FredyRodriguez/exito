@@ -8,6 +8,8 @@ use App\Container\Sicepla\Src\User;
 use App\Container\Sicepla\Src\Producto;
 use App\Container\Sicepla\Src\Proveedor;
 use App\Container\Sicepla\Src\Requests\ProductoStoreRequest;
+use App\Container\Sicepla\Src\Requests\ProductoUpdateRequest;
+use App\Container\Sicepla\Src\Requests\PedirUpdateRequest;
 
 class ProductoController extends Controller
 {
@@ -47,6 +49,10 @@ class ProductoController extends Controller
         $producto::create([
             'name' => $request['name'],
             'precioProducto' => $request['precioProducto'],
+            'cantidadBodega' => $request['cantidadBodega'],
+            'cantidadExhibicion' => $request['cantidadExhibicion'],
+            'cantidadComprar' => $request['cantidadComprar'],
+            'totalProducto' => $request['totalProducto'],
             'FK_UsuarioId' =>  $request['user'] ,
         ]);       
         return redirect('proveedor')->with('success','Producto Creado Correctamente');
@@ -91,7 +97,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductoUpdateRequest $request, $id)
     {
          $produc = Producto::find($id);
          $produc->fill($request->all());
@@ -118,7 +124,7 @@ class ProductoController extends Controller
            'id' => $produc,
          ]);
     }
-    public function pedirupdate(Request $request, $id)
+    public function pedirupdate(PedirUpdateRequest $request, $id)
     {
          $produc = Producto::find($id);
          $produc->fill($request->all());

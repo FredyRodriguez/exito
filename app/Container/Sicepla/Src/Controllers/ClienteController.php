@@ -7,6 +7,7 @@ use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
 use App\Container\Sicepla\Src\Roles;
 use App\Container\Sicepla\Src\Requests\UserStoreRequest;
+use App\Container\Sicepla\Src\Requests\ClienteUpdateRequest;
 
 
 class ClienteController extends Controller
@@ -88,7 +89,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $users)
+    public function update(ClienteUpdateRequest $request, $users)
     {
         $provee = User::find($users);
       $provee->fill($request->all());

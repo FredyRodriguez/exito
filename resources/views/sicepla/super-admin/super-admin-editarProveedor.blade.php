@@ -7,25 +7,29 @@
         {!!Form::model($users, ['route' => ['proveedor.update',$users], 'method' => 'PUT','files' => true, 'enctype'=>'multipart/form-data'])!!}
            <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group form-md-line-input">                                 
-                        {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre','required'])!!}
+                    <div class="form-group form-md-line-input"> 
+                    {!!Form::label('NOMBRE PROVEEDOR')!!}                                
+                        {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre','required','maxlength'=>'30'])!!}
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group form-md-line-input">                                 
-                        {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Teléfono','required'])!!}
+                    <div class="form-group form-md-line-input">   
+                        {!!Form::label('TELEFONO')!!}                              
+                        {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Teléfono','required','maxlength'=>'11'])!!}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                     <div class="form-group form-md-line-input">                                 
-                            {!!Form::number('documento',null,['class'=>'form-control','placeholder'=>'Documento ID','required'])!!}
+                     <div class="form-group form-md-line-input">  
+                            {!!Form::label('DOCUMENTO ID')!!}                               
+                            {!!Form::number('documento',null,['class'=>'form-control','placeholder'=>'Documento ID','required','maxlength'=>'12'])!!}
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group form-md-line-input">                                 
-                        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'E-mail','required'])!!}
+                    <div class="form-group form-md-line-input"> 
+                        {!!Form::label('CORREO')!!}                                
+                        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'E-mail','required','maxlength'=>'30'])!!}
                     </div>
                 </div>
             </div>            

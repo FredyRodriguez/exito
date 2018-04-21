@@ -20,12 +20,12 @@
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group form-md-line-input">                                 
-                            {!!Form::number('documento',null,['class'=>'form-control','placeholder'=>'Documento ID','required','maxlength'=>'11'])!!}
+                            {!!Form::number('documento',null,['class'=>'form-control','placeholder'=>'Documento ID','required','maxlength'=>'12'])!!}
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group form-md-line-input">                                 
-                        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'E-mail','required'])!!}
+                        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'E-mail','required','maxlength'=>'60'])!!}
                     </div>
                 </div>
             </div>            

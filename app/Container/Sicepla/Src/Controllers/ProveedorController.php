@@ -4,6 +4,7 @@ namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
 use App\Container\Sicepla\Src\Requests\ProveedorStoreRequest;
+use App\Container\Sicepla\Src\Requests\ProveedorUpdateRequest;
 use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
 //use App\Container\Sicepla\Src\Departamento;
@@ -91,7 +92,7 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $users)
+    public function update(ProveedorUpdateRequest $request, $users)
     {
       $provee = User::find($users);
       $provee->fill($request->all());

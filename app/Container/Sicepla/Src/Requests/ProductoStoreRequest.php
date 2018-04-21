@@ -24,7 +24,8 @@ class ProductoStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|max:255|unique:TBL_Productos',
+            'name'=>'required|string|max:40|unique:TBL_Productos',
+            'precioProducto'=>'required|string|max:15',
         ];
     }
 }
