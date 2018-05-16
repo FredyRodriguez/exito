@@ -79,4 +79,7 @@ class User extends Authenticatable
     public function producto(){
         return $this->hasOne(Producto::class,'FK_UsuarioId','PK_id');
     }
+    public function compra(){
+        return $this->hasOne(Compras::class,'FK_UsuarioId','PK_id');
+    }
 }

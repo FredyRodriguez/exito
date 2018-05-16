@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('foto')->nullable();  
             $table->integer('FK_RolesId')->unsigned();
-            $table->integer('FK_ComprasId')->unsigned()->nullable();
+           // $table->integer('FK_ComprasId')->unsigned()->nullable();
                     
             $table->rememberToken();
             $table->timestamps();
@@ -30,8 +30,8 @@ class CreateUsersTable extends Migration
             $table->foreign('FK_RolesId')->references('id')
             ->on('TBL_Roles')->onUpdate('cascade');
 
-            $table->foreign('FK_ComprasId')->references('id')
-            ->on('TBL_Compras')->onUpdate('cascade');
+           // $table->foreign('FK_ComprasId')->references('id')
+            //->on('TBL_Compras')->onUpdate('cascade');
 
             
         });

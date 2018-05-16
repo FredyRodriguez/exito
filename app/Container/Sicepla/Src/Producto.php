@@ -13,4 +13,7 @@ class Producto extends Model
     public function usuario(){
         return $this->belongsTo(User::class,'FK_UsuarioId','id');
     }
+    public function compra(){
+        return $this->hasOne(Compras::class,'FK_ProductoId','id');
+    }
 }

@@ -74,3 +74,10 @@ Route::prefix('bodega')->group(function () {
     //Route::get('pedir/{producto}','ProductoController@pedir')->name('producto.pedir');
     //Route::put('pedirupdate/{producto}','ProductoController@pedirupdate')->name('producto.pedirupdate');
 });
+
+Route::prefix('compra')->group(function(){
+    Route::get('index','CompraController@index')->name('compra.index');
+    Route::get('editar/{producto}','CompraController@edit')->name('compra.editar');
+    Route::post('store','CompraController@store')->name('compra.store');
+
+});

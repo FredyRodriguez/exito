@@ -16,9 +16,17 @@ class CreateComprasTable extends Migration
         Schema::create('TBL_Compras', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidadCompra')->nullable();
-            $table->integer('precioCompra')->nullable();                             
+            $table->integer('precioCompra')->nullable();  
+            $table->integer('FK_ProductoId')->unsigned()->nullable();                           
+            $table->integer('FK_UsuarioId')->unsigned()->nullable();
             $table->rememberToken();
-            $table->timestamps();            
+            $table->timestamps();     
+            
+            $table->foreign('FK_ProductoId')->references('id')
+            ->on('TBL_Productos')->onUpdate('cascade');
+
+            $table->foreign('FK_UsuarioId')->references('PK_id')
+            ->on('TBL_Usuarios')->onUpdate('cascade');
         });
     }
 
