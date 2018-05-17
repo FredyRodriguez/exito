@@ -15,14 +15,14 @@
                 ])
                 @endcomponent
             @endif
-            {{-- Boton de ayuda --}}
+            {{-- Boton de ayuda 
             @component('components.porlet-action', [
                 'icon' => 'fa fa-question',
                 'link' => '#ayuda',
                 'attributes' => "data-toggle='modal'",
                 'title'=>'Ayuda',
             ])
-            @endcomponent
+            @endcomponent--}}
 
             <a class="btn btn-circle btn-icon-only btn-default fullscreen"  href="javascript:;"></a>
         </div>

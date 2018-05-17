@@ -18,7 +18,7 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos en Bodega'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos en Bodega','pdf'=> route('reporte.reporteProductoAdmin')])
         <div id="app">
             {{--inicio tabla--}}
             <div class="table-responsive">

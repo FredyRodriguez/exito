@@ -84,4 +84,7 @@ Route::prefix('compra')->group(function(){
 
 Route::prefix('reporte')->group(function(){
     Route::post('reporteProveedor','PDFController@reporteProveedor')->name('reporte.reporteProveedor');
+    Route::post('reporteProducto','PDFController@reporteProducto')->name('reporte.reporteProducto');
+    Route::post('reporteProductoAdmin','PDFController@reporteProductoAdmin')->name('reporte.reporteProductoAdmin');
+    Route::post('reporteCliente','PDFController@reporteCliente')->name('reporte.reporteCliente');
 });
