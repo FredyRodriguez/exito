@@ -22,7 +22,7 @@ class CompraController extends Controller
     }
 
     public function compras(){
-        $compras = Compras::all();
+        $compras = Compras::all()->where('FK_UsuarioId',Auth::user()->PK_id);
         return view('sicepla.ayudante.ayudante-productosComprar',compact('compras'));
     }
 
@@ -44,6 +44,7 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
+        //dd(Auth::user()->PK_id);
         $producto = Producto::find($request['id']);
         $producto->cantidadExhibicion = $request['cantidadExhibicion'];
         $producto->save();
@@ -102,6 +103,8 @@ class CompraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //dd($id);
+        Compras::destroy($id);
+        return redirect()->route('compra.compras')->with('error','Producto Eliminado Correctamente');
     }
 }

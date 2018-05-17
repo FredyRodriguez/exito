@@ -80,6 +80,7 @@ Route::prefix('compra')->group(function(){
     Route::get('editar/{producto}','CompraController@edit')->name('compra.editar');
     Route::post('store','CompraController@store')->name('compra.store');
     Route::get('compras','CompraController@compras')->name('compra.compras');
+    Route::delete('destroy{producto}','CompraController@destroy')->name('compra.destroy');
 });
 
 Route::prefix('reporte')->group(function(){
@@ -87,4 +88,5 @@ Route::prefix('reporte')->group(function(){
     Route::post('reporteProducto','PDFController@reporteProducto')->name('reporte.reporteProducto');
     Route::post('reporteProductoAdmin','PDFController@reporteProductoAdmin')->name('reporte.reporteProductoAdmin');
     Route::post('reporteCliente','PDFController@reporteCliente')->name('reporte.reporteCliente');
+    Route::post('reporteProductoCliente','PDFController@reporteProductoCliente')->name('reporte.reporteProductoCliente');
 });

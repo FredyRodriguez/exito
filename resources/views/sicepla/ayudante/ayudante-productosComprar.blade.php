@@ -18,7 +18,7 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos Comprados'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos Comprados','pdf'=> route('reporte.reporteProductoCliente')])
         <div id="app">
             {{--inicio tabla--}}
             <div class="table-responsive">
@@ -38,7 +38,10 @@
                             <td>{{$compra->cantidadComprar}}</td>
                             <td>{{$compra->precioComprarCliente}}</td>
                             <td>{{$compra->created_at}}</td>
-                            <td>{{link_to_route('compra.editar', $title = '', $parameter = $compra->id, $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-briefcase'])}}</td></tr>
+                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['compra.destroy',$compra->id]])!!}
+                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+                                {!!Form::close()!!}
+                            </td>
                         @endforeach
                     </tbody>
                      
