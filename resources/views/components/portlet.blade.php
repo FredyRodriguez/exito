@@ -6,7 +6,15 @@
         </div>
         <div class="actions">
             {{ $actions or null }}
-
+            @if(isset($pdf))
+                @component('components.porlet-post-action', [ 
+                    'title' => 'reporte',
+                    'icon' => 'fa fa-file-pdf-o',
+                    'id' => 'pdf-form',
+                    'url' => $pdf
+                ])
+                @endcomponent
+            @endif
             {{-- Boton de ayuda --}}
             @component('components.porlet-action', [
                 'icon' => 'fa fa-question',

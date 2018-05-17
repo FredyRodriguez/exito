@@ -81,3 +81,7 @@ Route::prefix('compra')->group(function(){
     Route::post('store','CompraController@store')->name('compra.store');
     Route::get('compras','CompraController@compras')->name('compra.compras');
 });
+
+Route::prefix('reporte')->group(function(){
+    Route::post('reporteProveedor','PDFController@reporteProveedor')->name('reporte.reporteProveedor');
+});
