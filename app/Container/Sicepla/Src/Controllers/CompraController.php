@@ -5,6 +5,8 @@ namespace App\Container\Sicepla\Src\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Container\Sicepla\Src\Producto;
+use App\Container\Sicepla\Src\Compras;
+use Illuminate\Support\Facades\Auth;
 
 class CompraController extends Controller
 {
@@ -15,8 +17,8 @@ class CompraController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
-        return view('sicepla.ayudante.ayudante-productosComprar',compact('productos'));
+        $compras = Producto::all();
+        return view('sicepla.ayudante.ayudante-productosComprar',compact('compras'));
     }
 
     /**
@@ -37,7 +39,17 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $producto = Producto::find($request['id']);
+        $producto->cantidadExhibicion = $request['cantidadExhibicion'];
+        $producto->save();
+        $compra = new Compras;
+        $compra::create([
+            'cantidadComprar' => $request['cantidadComprar'],
+            'precioComprarCliente' => $request['precioComprarCliente'],
+            'FK_ProductoId' => $request['id'],
+            'FK_UsuarioId' =>  Auth::user()->PK_id            
+        ]);       
+        return redirect()->route('compra.index')->with('success','Producto Creado Correctamente');
     }
 
     /**
@@ -61,7 +73,7 @@ class CompraController extends Controller
     {
         $produc = Producto::find($id);
          return view('sicepla.ayudante.ayudante-comprar',[
-           'id' => $produc,
+           'producto' => $produc,
          ]);
     }
 

@@ -31,12 +31,12 @@
                         
                     </thead>
                     <tbody>
-                      @foreach($productos as $producto)
+                      @foreach($compras as $compra)
                         <tr  class="text-center">
-                            <td>{{$producto->name}}</td>
-                            <td>{{$producto->cantidadExhibicion}}</td>
-                            <td>{{$producto->precioProductoComprar}}</td>
-                            <td>{{link_to_route('compra.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-briefcase'])}}</td></tr>
+                            <td>{{$compra->name}}</td>
+                            <td>{{$compra->cantidadExhibicion}}</td>
+                            <td>{{$compra->precioProductoComprar}}</td>
+                            <td>{{link_to_route('compra.editar', $title = '', $parameter = $compra->id, $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-briefcase'])}}</td></tr>
                         @endforeach
                     </tbody>
                      

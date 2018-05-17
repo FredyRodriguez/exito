@@ -15,8 +15,8 @@ class CreateComprasTable extends Migration
     {
         Schema::create('TBL_Compras', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantidadCompra')->nullable();
-            $table->integer('precioCompra')->nullable();  
+            $table->integer('cantidadComprar')->nullable();
+            $table->integer('precioComprarCliente')->nullable();  
             $table->integer('FK_ProductoId')->unsigned()->nullable();                           
             $table->integer('FK_UsuarioId')->unsigned()->nullable();
             $table->rememberToken();

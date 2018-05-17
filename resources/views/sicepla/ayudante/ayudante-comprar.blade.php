@@ -5,7 +5,10 @@
     @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Compra de Productos'])
         <div id="app">
         
-        {!!Form::model($id, ['route' => ['compra.store',$id], 'method' => 'POST','files' => true, 'enctype'=>'multipart/form-data'])!!}
+        {!!Form::model($producto, ['route' => ['compra.store',$producto], 'method' => 'POST','files' => true, 'enctype'=>'multipart/form-data'])!!}
+        <div class="form-group form-md-line-input">
+                    {!!Form::hidden('id')!!}{{--Campo Oculto del Id usuario--}}
+                </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group form-md-line-input">
@@ -41,11 +44,11 @@
                     </div>
                 </div>
             </div>
-                <div class="form-group form-md-line-input">
-                    {!!Form::hidden('totalProducto',null,['id'=>'totalProducto',])!!}{{--Campo Oculto del Id usuario--}}
-                </div>
+                {{--<div class="form-group form-md-line-input">
+                    {!!Form::hidden('totalProducto',null,['id'=>'totalProducto',])!!}{{--Campo Oculto del Id usuario
+                </div>--}}
                 {!! Form::submit('registrar', ['class'=>'btn green-jungle']) !!}
-                {{link_to_route('bodega.index', $title = 'cancelar', $parameter = [''], $attributes = ['class' => 'btn btn-danger btn-warning'])}}
+                {{link_to_route('compra.index', $title = 'cancelar', $parameter = [''], $attributes = ['class' => 'btn btn-danger btn-warning'])}}
             {!! Form::close() !!}
             
     @endcomponent
@@ -55,36 +58,32 @@
 @push('functions')
 <script>
 jQuery(document).ready(function(){
-    let bodegaInput = document.getElementById("cantidadBodega")
+    let bodegaInput = document.getElementById("cantidadExhibicion")
     let original = bodegaInput.value
-     $('#precioProductoComprar').on('keyup',function(){
-            var precioProveedor = document.getElementById("precioProducto").value;
-            var precioCliente = document.getElementById("precioProductoComprar").value;
-            precioProveedor = parseInt(precioProveedor);
-            precioCliente = parseInt(precioCliente);
-            rango = precioProveedor - 50 ;
-            console.log(precioProveedor);
-            if((precioCliente <= precioProveedor)&&(precioCliente >= rango)){
-                alert("Precio de venta al cliente es mas bajo precio de compra del proveedor");
-            }
-     });
-     $('#cantidadExhibicion').on('keyup', function () {
-             var cantBodega =  bodegaInput.value;
-             var cant = document.getElementById("cantidadExhibicion").value;
-             original = parseInt(original);
-             cant = parseInt(cant);                
-             if(cant > original){
-                alert("La cantidad a solicitar excede la cantidad en bodega");
-             }
-             else{                 
-                var resultado = original - cant;        
-                bodegaInput.value = resultado;               
-             }
-             var totalProducto = resultado + cant;   
-             document.getElementById("totalProducto").value = totalProducto;
-     });
-     
-
+    console.log("exhibicion " + original);
+     $('#cantidadComprar').on('keyup', function () {
+         var precioP =  document.getElementById("precioProductoComprar").value;         
+         console.log("precio " + precioP);  
+         cantidadExhibicion = bodegaInput.vale;
+         var cant = document.getElementById("cantidadComprar").value;            
+         console.log("cantidad bodega " + cant);      
+         //var cantidadExhibicion = document.getElementById("cantidadExhibicion").value;
+         document.getElementById("precioComprarCliente").value = precioP * cant;
+         original = parseInt(original);
+         cant = parseInt(cant);  
+         if(original > 0){             
+            var res =original- cant  
+         }
+         else{
+            var res =cant;
+         }
+         console.log("total " + res);
+         document.getElementById("cantidadExhibicion").value = res; 
+         //document.getElementById("cantidadExhibicion").value = res;
+         //console.log("resultado " + res);
+         //bodegaInput.value = res;
+         
+        });        
 });
 </script>
 @endpush
