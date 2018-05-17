@@ -56,7 +56,7 @@ class ProveedorController extends Controller
         
         $user->save();
         //$user->notify(new UsuarioCreado($request->password));
-        return redirect()->route('proveedor.index')->with('success','Usuario Creado Correctamente');
+        return redirect()->route('proveedor.index')->with('success','Proveedor Creado Correctamente');
         return $user;
     }
 

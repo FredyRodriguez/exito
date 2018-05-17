@@ -79,5 +79,5 @@ Route::prefix('compra')->group(function(){
     Route::get('index','CompraController@index')->name('compra.index');
     Route::get('editar/{producto}','CompraController@edit')->name('compra.editar');
     Route::post('store','CompraController@store')->name('compra.store');
-
+    Route::get('compras','CompraController@compras')->name('compra.compras');
 });

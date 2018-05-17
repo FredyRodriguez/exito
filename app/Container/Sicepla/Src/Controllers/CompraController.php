@@ -17,7 +17,12 @@ class CompraController extends Controller
      */
     public function index()
     {
-        $compras = Producto::all();
+        $ventas = Producto::all();
+        return view('sicepla.ayudante.ayudante-productosVenta',compact('ventas'));
+    }
+
+    public function compras(){
+        $compras = Compras::all();
         return view('sicepla.ayudante.ayudante-productosComprar',compact('compras'));
     }
 
@@ -49,7 +54,7 @@ class CompraController extends Controller
             'FK_ProductoId' => $request['id'],
             'FK_UsuarioId' =>  Auth::user()->PK_id            
         ]);       
-        return redirect()->route('compra.index')->with('success','Producto Creado Correctamente');
+        return redirect()->route('compra.compras')->with('success','Compra Realizada Correctamente');
     }
 
     /**

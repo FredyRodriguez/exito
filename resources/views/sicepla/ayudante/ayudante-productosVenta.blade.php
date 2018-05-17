@@ -18,27 +18,25 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos Comprados'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Productos en Venta'])
         <div id="app">
             {{--inicio tabla--}}
             <div class="table-responsive">
                 <table id="data" class="table table-hover table-bordered table-condensed">
                     <thead>
-                        <th class="text-center">Producto</th>
-                        <th class="text-center">Cant. Comprada</th>
-                        <th class="text-center">Precio Total</th>
-                        <th class="text-center">Fecha Compra</th>
-                        <th class="text-center">Eliminar</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Cant. Exhibicion</th>
+                        <th class="text-center">Precio Cliente</th>
+                        <th class="text-center">Realizar Compra</th>
                         
                     </thead>
                     <tbody>
-                      @foreach($compras as $compra)
+                      @foreach($ventas as $venta)
                         <tr  class="text-center">
-                            <td>{{$compra->producto->name}}</td>
-                            <td>{{$compra->cantidadComprar}}</td>
-                            <td>{{$compra->precioComprarCliente}}</td>
-                            <td>{{$compra->created_at}}</td>
-                            <td>{{link_to_route('compra.editar', $title = '', $parameter = $compra->id, $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-briefcase'])}}</td></tr>
+                            <td>{{$venta->name}}</td>
+                            <td>{{$venta->cantidadExhibicion}}</td>
+                            <td>{{$venta->precioProductoComprar}}</td>
+                            <td>{{link_to_route('compra.editar', $title = '', $parameter = $venta->id, $attributes = ['class' => 'btn btn-simple btn-success glyphicon glyphicon-briefcase'])}}</td></tr>
                         @endforeach
                     </tbody>
                      
