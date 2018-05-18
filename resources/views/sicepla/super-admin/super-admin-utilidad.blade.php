@@ -39,7 +39,7 @@
                             <td>{{$utilidad->CantidadComprar}}</td>
                             <td>{{$utilidad->precioProducto}}</td>
                             <td>{{$utilidad->precioProductoComprar}}</td>
-                            <td>{{$Utilidad}}</td>
+                            <td>{{$utilidad->Utilidad}}</td>
                         </tr>
                         @endforeach
                     </tbody> 
