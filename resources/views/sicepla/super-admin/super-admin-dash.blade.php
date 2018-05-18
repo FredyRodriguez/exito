@@ -18,3 +18,10 @@
     'link' => route('cliente.index')
 ])
 @endcomponent
+
+@component('components.nav-link', [
+    'icon' => 'fa fa-book',
+    'title' => 'Utilidad',
+    'link' => route('utilidad.index')
+])
+@endcomponent

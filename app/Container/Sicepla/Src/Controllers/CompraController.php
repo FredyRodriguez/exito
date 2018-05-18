@@ -47,6 +47,7 @@ class CompraController extends Controller
         //dd(Auth::user()->PK_id);
         $producto = Producto::find($request['id']);
         $producto->cantidadExhibicion = $request['cantidadExhibicion'];
+        $producto->cantidadComprar = $request['cantidadComprar'];
         $producto->save();
         $compra = new Compras;
         $compra::create([
