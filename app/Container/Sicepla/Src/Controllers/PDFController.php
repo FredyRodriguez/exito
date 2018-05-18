@@ -42,4 +42,10 @@ class PDFController extends Controller
         $pdf = PDF::loadView('pdf.reporteProductoCliente',compact('productoClientes'));
         return $pdf->stream('reporteProductoCliente.pdf');
     }
+    public function reporteUtilidad()
+    {
+        $reporteUtilidades = Producto::all();
+        $pdf = PDF::loadView('pdf.reporteUtilidad',compact('reporteUtilidades','Utilidad'));
+        return $pdf->stream('reporteUtilidad.pdf');
+    }
 }

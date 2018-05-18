@@ -89,6 +89,7 @@ Route::prefix('reporte')->group(function(){
     Route::post('reporteProductoAdmin','PDFController@reporteProductoAdmin')->name('reporte.reporteProductoAdmin');
     Route::post('reporteCliente','PDFController@reporteCliente')->name('reporte.reporteCliente');
     Route::post('reporteProductoCliente','PDFController@reporteProductoCliente')->name('reporte.reporteProductoCliente');
+    Route::post('reporteUtilidad','PDFController@reporteUtilidad')->name('reporte.reporteUtilidad');
 });
 
 Route::prefix('utilidad')->group(function(){

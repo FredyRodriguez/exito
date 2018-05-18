@@ -18,7 +18,7 @@
 @include('sicepla.alerts.error')
 @include('sicepla.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Utilidad Productos'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Utilidad Productos','pdf'=> route('reporte.reporteUtilidad')])
         <div id="app">
             {{--inicio tabla--}}
             <div class="table-responsive">
