@@ -35,11 +35,11 @@
                     <tbody>
                       @foreach($utilidades as $utilidad)
                         <tr  class="text-center">
-                            <td>{{$utilidad->tbl_productos.name}}</td>
-                            <td>{{$utilidad->tbl_compras.cantidadComprar}}</td>
-                            <td>{{$utilidad->tbl_productos.precioProducto}}</td>
-                            <td>{{$utilidad->tbl_productos.precioProductoComprar}}</td>
-                            <td>fhfgh</td>
+                            <td>{{$utilidad->nameProduct}}</td>
+                            <td>{{$utilidad->CantidadComprar}}</td>
+                            <td>{{$utilidad->precioProducto}}</td>
+                            <td>{{$utilidad->precioProductoComprar}}</td>
+                            <td>{{$Utilidad}}</td>
                         </tr>
                         @endforeach
                     </tbody> 
