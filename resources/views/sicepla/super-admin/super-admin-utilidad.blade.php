@@ -33,22 +33,15 @@
                     </thead>
 
                     <tbody>
-                      {{--@foreach($users as $user)
+                      @foreach($utilidades as $utilidad)
                         <tr  class="text-center">
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->telefono}}</td>
-                            <td>{{$user->documento}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{link_to_route('proveedor.edit', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
-                            </td>
-                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['proveedor.destroy',$user->PK_id]])!!}
-                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
-                                {!!Form::close()!!}
-                            </td>
-                            <td>{{link_to_route('producto.create', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-success btn-icon edit icon-plus'])}}</td>
-                            <td>{{link_to_route('producto.index', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-info icon-eye'])}}</td>                                                        
+                            <td>{{$utilidad->tbl_productos.name}}</td>
+                            <td>{{$utilidad->tbl_compras.cantidadComprar}}</td>
+                            <td>{{$utilidad->tbl_productos.precioProducto}}</td>
+                            <td>{{$utilidad->tbl_productos.precioProductoComprar}}</td>
+                            <td>fhfgh</td>
                         </tr>
-                        @endforeach--}}
+                        @endforeach
                     </tbody> 
                 </table>
             </div>
