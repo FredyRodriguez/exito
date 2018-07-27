@@ -3,6 +3,7 @@
 namespace App\Container\Sicepla\Src\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
 use App\Container\Sicepla\Src\Roles;
@@ -53,11 +54,19 @@ class UsuarioController extends Controller
             'FK_RolesId'
         );        
         $user = new User($atributos);
-        $user->password = bcrypt($user->password);        
+        $user->password = bcrypt($user->password); 
+        
+        if($request->file('foto')){
+            $path = Storage::disk('public')->put('image', $request->file('foto'));
+            $user->fill('');
+            
+        }
+        
         $user->save();        
         return redirect()->route('usuario.index')->with('success','Usuario Creado Correctamente');
         return $user;
     }
+    
 
     /**
      * Display the specified resource.

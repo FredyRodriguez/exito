@@ -4,7 +4,7 @@
 @include('idrd.alerts.errors')
     @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Crear Usuarios'])
         <div id="app">
-        {!! Form::open(['route'=>'usuario.store','method'=>'POST']) !!}                        
+        {!! Form::open(['route'=>'usuario.store','method'=>'POST','file'=> true]) !!}                        
            <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group form-md-line-input">                                 
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">                                
                     <div class="form-group form-md-line-input">                                 
-                        {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Nombre','required','maxlength'=>'30'])!!}
+                        {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Dirección','required','maxlength'=>'30'])!!}
                     </div>
                 </div>
             </div> 

@@ -71,7 +71,6 @@
             </div>  
             {!! Form::close() !!}
         </div>
-        @include('partials.modal-help-edit-depto')
     @endcomponent
 </div>
 @endsection
