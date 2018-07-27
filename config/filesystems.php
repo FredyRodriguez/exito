@@ -86,6 +86,12 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'foto'=> [
+            'driver' => 'local',
+            'root' => storage_path('app/public/formatos'),
+            'url' => '/storage',
+            'visibility' => 'public',    
+        ],
 
     ],
 

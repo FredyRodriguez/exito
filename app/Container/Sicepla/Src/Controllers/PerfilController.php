@@ -19,7 +19,7 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        return view('sicepla.global.perfil');
+        return view('idrd.global.perfil');
     }
 
     public function update(PerfilUpdateRequest $request)

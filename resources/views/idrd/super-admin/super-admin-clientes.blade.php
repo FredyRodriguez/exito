@@ -14,42 +14,63 @@
 @section('content')
 <div class="col-md-12">
 {{--Inicio Mensaje Confirmar--}}
-@include('sicepla.alerts.success')
-@include('sicepla.alerts.error')
-@include('sicepla.alerts.errors')
+@include('idrd.alerts.success')
+@include('idrd.alerts.error')
+@include('idrd.alerts.errors')
 {{--Fin Mensaje Confirmar--}}
-    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Producto'])
+    @component('components.portlet', ['icon' => 'fa fa-users', 'title' => 'Usuarios','pdf'=> route('reporte.reporteCliente')])
         <div id="app">
+        {{--boton crear departamento--}}
+            <div>
+                <a href="{{route('usuario.create')}}" class="btn green-jungle">
+                    <i class="fa fa-plus"></i>
+                       Crear Usuarios
+                </a>
+             </div>   <br>
+             {{--fin boton crear departamento--}}
             {{--inicio tabla--}}
             <div class="table-responsive">
                 <table id="data" class="table table-hover table-bordered table-condensed">
                     <thead>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Precio</th>
+                        <th class="text-center">Documento</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Dirección</th>
+                        <th class="text-center">Pais</th>
+                        <th class="text-center">Ciudad</th>
+                        <th class="text-center">Codigo Postal</th>
+                        <th class="text-center">Fecha Nacimiento</th>
+                        <th class="text-center">E-mail</th>
+                        <th class="text-center">Foto</th>
                         <th class="text-center">Editar</th>
                         <th class="text-center">Eliminar</th>
-                        <th class="text-center">Solicitar</th>
+                        
                     </thead>
 
                     <tbody>
-                      @foreach($productos as $producto)
+                      @foreach($users as $user)
                         <tr  class="text-center">
-                            <td>{{$producto->name}}</td>
-                            <td>{{$producto->precioProducto}}</td>
-                            <td>{{link_to_route('producto.editar', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->documento}}</td>
+                            <td>{{$user->telefono}}</td>
+                            <td>{{$user->direccion}}</td>
+                            <td>{{$user->pais}}</td>
+                            <td>{{$user->ciudad}}</td>
+                            <td>{{$user->codigo}}</td>
+                            <td>{{$user->fecha}}</td>                            
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->foto}}</td>
+                            <td>{{link_to_route('usuario.edit', $title = '', $parameter = $user->PK_id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
                             </td>
-                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['producto.destroy',$producto->id]])!!}
+                            <td>{!!Form::open(['method' => 'DELETE', 'route' => ['usuario.destroy',$user->PK_id]])!!}
                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}
-                            </td> 
-                            <td>{{link_to_route('producto.pedir', $title = '', $parameter = $producto->id, $attributes = ['class' => 'btn btn-simple btn-primary glyphicon glyphicon-ok'])}}</td>                       
-                        </tr>
+                            </td>
                         @endforeach
                     </tbody> 
                 </table>
             </div>
         </div>
-        @include('partials.modal-help-usuario')
     @endcomponent
 </div>
 @endsection

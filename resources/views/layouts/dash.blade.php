@@ -10,10 +10,10 @@
 @section('links')
   
 
-    @includeWhen($rol == 'Super Administrador', 'sicepla.super-admin.super-admin-dash')
-    @includeWhen($rol == 'Administrador', 'sicepla.admin.administrador-dash')
-    @includeWhen($rol == 'Cliente', 'sicepla.ayudante.ayudante-dash')
-    @includeWhen($rol == 'Proveedor', 'sicepla.empleado.empleado-dash')
+    @includeWhen($rol == 'Super Administrador', 'idrd.super-admin.super-admin-dash')
+    @includeWhen($rol == 'Administrador', 'idrd.admin.administrador-dash')
+    @includeWhen($rol == 'Cliente', 'idrd.ayudante.ayudante-dash')
+    @includeWhen($rol == 'Proveedor', 'idrd.empleado.empleado-dash')
 
    
 

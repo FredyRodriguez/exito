@@ -7,10 +7,10 @@ use App\Container\Sicepla\Src\User;
 use App\Http\Controllers\Controller;
 use App\Container\Sicepla\Src\Roles;
 use App\Container\Sicepla\Src\Requests\UserStoreRequest;
-use App\Container\Sicepla\Src\Requests\ClienteUpdateRequest;
+use App\Container\Sicepla\Src\Requests\UsuarioUpdateRequest;
 
 
-class ClienteController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +19,16 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $users = User::all()->where('FK_RolesId',"=","3");
-        return view('sicepla.super-admin.super-admin-clientes',compact('users','roles'));
+       // $users = User::all()->where('FK_RolesId',"=","3");
+        $users = User::all();
+        return view('idrd.super-admin.super-admin-clientes',compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
+        //$roles = Roles::all();
         $roles = Roles::all();
-        return view('sicepla.super-admin.super-admin-crearCliente',compact('users','roles'));
+        return view('idrd.super-admin.super-admin-crearCliente',compact('users','roles'));
     }
 
     /**
@@ -44,8 +41,13 @@ class ClienteController extends Controller
     {
         $atributos = $request->only(
             'name',
-            'telefono',
             'documento',
+            'telefono',
+            'direccion', 
+            'pais',
+            'ciudad',
+            'codigo',
+            'fecha',
             'email',
             'password',
             'FK_RolesId'
@@ -53,7 +55,7 @@ class ClienteController extends Controller
         $user = new User($atributos);
         $user->password = bcrypt($user->password);        
         $user->save();        
-        return redirect()->route('cliente.index')->with('success','Cliente Creado Correctamente');
+        return redirect()->route('usuario.index')->with('success','Usuario Creado Correctamente');
         return $user;
     }
 
@@ -77,7 +79,7 @@ class ClienteController extends Controller
     public function edit($users)
     {
         $provee = User::find($users);
-         return view('sicepla.super-admin.super-admin-editarCliente',[
+         return view('idrd.super-admin.super-admin-editarCliente',[
            'users' => $provee,
          ]);
     }
@@ -89,12 +91,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClienteUpdateRequest $request, $users)
+    public function update(UsuarioUpdateRequest $request, $users)
     {
         $provee = User::find($users);
       $provee->fill($request->all());
       $provee->save();
-      return redirect('/cliente')->with('success','Cliente Modificado Correctamente');
+      return redirect('/usuario')->with('success','Usuario Modificado Correctamente');
     }
 
     /**
@@ -106,6 +108,6 @@ class ClienteController extends Controller
     public function destroy($users)
     {
         User::destroy($users);
-        return redirect('/cliente')->with('error','Cliente Eliminado Correctamente');
+        return redirect('/usuario')->with('error','Usuario Eliminado Correctamente');
     }
 }

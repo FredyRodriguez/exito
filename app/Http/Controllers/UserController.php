@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Container\Sicepla\Src\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Container\Sicepla\Src\Producto;
-use App\Http\Controllers\Controller;
 
-class BodegaController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +13,7 @@ class BodegaController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
-        return view('sicepla.super-admin.super-admin-producBodega',compact('productos'));
-    }
-    public function producto()
-    {
-        $productos = Producto::all();
-        return view('sicepla.admin.admin-producBodega',compact('productos'));
+        
     }
 
     /**
@@ -64,10 +56,7 @@ class BodegaController extends Controller
      */
     public function edit($id)
     {
-        $produc = Producto::find($id);
-         return view('sicepla.admin.admin-exhibicion',[
-           'id' => $produc,
-         ]);
+        //
     }
 
     /**
@@ -79,10 +68,7 @@ class BodegaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produc = Producto::find($id);
-         $produc->fill($request->all());
-         $produc->save();
-        return redirect('/bodega/producto')->with('success','Producto en exhibicion almacenada Correctamente');
+        //
     }
 
     /**
